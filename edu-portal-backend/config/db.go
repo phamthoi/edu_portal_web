@@ -20,7 +20,7 @@ func ConnectDB() {
 	//&gorm.Config{}: config GORM Default
 
 	if err != nil {
-		log.Fatal("Cannot connect to database: ", err)
+		log.Fatal("We cannot connect to database: ", err)
 	}
 
 	DB = db

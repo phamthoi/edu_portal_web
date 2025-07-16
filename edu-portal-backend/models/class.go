@@ -14,6 +14,6 @@ type Class struct {
 	Teacher User   `gorm:"constraint:OnUpdate:CASCADE, OnDelete: SET NULL;"`
 }
 
-//use gorm.Model to have some default ID, CreatedAt, UpdatedAt,...
+// use gorm.Model to have some default ID, CreatedAt, UpdatedAt,...
 // CourseID and Teacher ID use to make a exception key to connect with courses and users table.
 // Course and Teacher will help you access to get information relate course and teacher through GORM easily.

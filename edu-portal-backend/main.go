@@ -16,6 +16,7 @@ func main() {
 		&models.Class{},
 		&models.Enrollment{},
 	)
+
 	r := routes.SetupRoute()
 	r.Run(":8080")
 
