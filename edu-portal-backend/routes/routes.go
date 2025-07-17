@@ -4,11 +4,22 @@ import (
 	"edu-portal-backend/controllers"
 	"edu-portal-backend/middleware"
 
+	"github.com/gin-contrib/cors"
 	"github.com/gin-gonic/gin"
 )
 
 func SetupRoute() *gin.Engine {
 	r := gin.Default()
+
+	// Add CORS middleware
+	r.Use(cors.New(cors.Config{
+		AllowOrigins:    []string{"http://localhost:3000", "http://localhost:3001"},
+		AllowMethods:    []string{"GET", "POST", "PUT", "DELETE", "OPTIONS"},
+		AllowHeaders:    []string{"Origin", "Content-Type", "Accept", "Authorization"},
+		ExposeHeaders:   []string{"Content-Length"},
+		AllowCredentials: true,
+	}))
+
 	//Routes don't need auth. we can put it exception this group
 	r.POST("/register", controllers.Register)
 	r.POST("/login", controllers.Login)
